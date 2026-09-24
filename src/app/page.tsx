@@ -1,7 +1,5 @@
 import HomepageCard from "@/components/card/homepagecard";
 import Hsection from "@/components/Herosec/Hsection";
-
-
 import { Workout } from "@/type/Datatype";
 
 const getWorkouts = async (): Promise<Workout[]> => {
@@ -24,7 +22,7 @@ const Page = async () => {
       <Hsection />
 
       <section
-        id="workouts"
+        id="library"
         className="bg-[#0b0c0e] px-4 pb-10 pt-2 sm:px-6 lg:px-10 lg:pb-16"
       >
         <div className="mx-auto max-w-[1400px]">

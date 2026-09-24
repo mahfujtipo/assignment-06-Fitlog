@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { FiArrowDown } from "react-icons/fi";
 
 import banner from "../../assets/banner.png";
 
@@ -31,12 +33,13 @@ const Hsection = () => {
               </p>
 
               {/* CTA */}
-              <button
-                type="button"
-                className="mt-7 rounded-md bg-[#b7ff00] px-6 py-3 text-[11px] font-extrabold uppercase tracking-wide text-black transition-all duration-200 hover:bg-[#c8ff3b] hover:shadow-[0_0_25px_rgba(183,255,0,0.2)] active:scale-95"
+              <Link
+                href="#library"
+                className="mt-7 inline-flex items-center gap-2 rounded-md bg-[#b7ff00] px-6 py-3 text-[11px] font-extrabold uppercase tracking-wide text-black transition-all duration-200 hover:bg-[#c8ff33] hover:shadow-[0_0_25px_rgba(183,255,0,0.2)] active:scale-95"
               >
-                Browse Workouts
-              </button>
+                <span>Browse Workouts</span>
+                <FiArrowDown className="h-4 w-4" />
+              </Link>
             </div>
 
             {/* Mobile / Tablet Banner */}
