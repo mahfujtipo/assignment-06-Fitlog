@@ -17,6 +17,12 @@ type PlancardProps = {
 const Plancard = ({ workout, onRemove }: PlancardProps) => {
   const [isDone, setIsDone] = useState(false);
 
+  const handleDone = () => {
+    setIsDone((previous) => !previous);
+
+    toast.success(`${workout.name} marked as done!`);
+  };
+
   const handleRemove = () => {
     onRemove(workout.id);
 
@@ -86,7 +92,7 @@ const Plancard = ({ workout, onRemove }: PlancardProps) => {
         {/* Mark as Done */}
         <button
           type="button"
-          onClick={() => setIsDone((previous) => !previous)}
+          onClick={handleDone}
           className={`flex items-center justify-center gap-1.5 rounded-lg px-4 py-2 text-xs font-bold transition ${
             isDone
               ? "bg-[#1b2708] text-[#b7ff00]"

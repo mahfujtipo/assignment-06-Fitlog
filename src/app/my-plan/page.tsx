@@ -119,13 +119,13 @@ const Page = () => {
           </div>
 
           {/* Sort */}
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2 whitespace-nowrap">
             <span className="text-xs text-[#858a94]">Sort By</span>
 
             <select
               value={sortBy}
               onChange={(event) => setSortBy(event.target.value as SortType)}
-              className="select select-sm border-[#292c32] bg-[#15171c] text-xs text-white outline-none"
+              className="select select-sm w-auto border-[#292c32] bg-[#15171c] text-xs text-white outline-none"
             >
               <option value="duration">Duration</option>
               <option value="caloriesBurned">Calories</option>
