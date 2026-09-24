@@ -2,6 +2,8 @@
 
 import { FiBookmark } from "react-icons/fi";
 import { useContext } from "react";
+import { toast } from "react-toastify";
+
 import { Workout } from "@/type/Datatype";
 import { Fitcontext } from "@/context/context";
 
@@ -19,18 +21,17 @@ export default function SaveButton({ workout }: SaveButtonProps) {
   const { save, setsave } = context;
 
   const handleSave = () => {
-    setsave((previous) => {
-      const alreadySaved = previous.some((item) => item.id === workout.id);
+    const alreadySaved = save.some((item) => item.id === workout.id);
 
-      if (alreadySaved) {
-        return previous;
-      }
+    if (alreadySaved) {
+      toast.error("Workout is already saved.");
+      return;
+    }
 
-      return [...previous, workout];
-    });
+    setsave((previous) => [...previous, workout]);
+
+    toast.success("Workout saved for later.");
   };
-
-  const isSaved = save.some((item) => item.id === workout.id);
 
   return (
     <button
@@ -40,7 +41,7 @@ export default function SaveButton({ workout }: SaveButtonProps) {
     >
       <FiBookmark className="h-4 w-4" />
 
-      <span>{isSaved ? "Saved" : "Save for later"}</span>
+      <span>Save for later</span>
     </button>
   );
 }

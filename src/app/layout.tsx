@@ -4,6 +4,8 @@ import "./globals.css";
 import Nav from "@/components/shared/Nav";
 import Footersection from "@/components/footer/Footersection";
 import ContextProvider from "@/context/context";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,8 +32,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <ContextProvider>
           <Nav />
-          {children}
+
+          <div className="pt-[74px]">{children}</div>
+
           <Footersection />
+
+          <ToastContainer position="top-right" autoClose={2000} />
         </ContextProvider>
       </body>
     </html>

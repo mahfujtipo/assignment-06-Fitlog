@@ -3,14 +3,24 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useContext } from "react";
 
 import logo from "../../assets/logo.png";
+import { Fitcontext } from "@/context/context";
 
 const Nav = () => {
   const pathname = usePathname();
 
+  const context = useContext(Fitcontext);
+
+  if (!context) {
+    throw new Error("Nav must be used inside ContextProvider");
+  }
+
+  const { addplan, save } = context;
+
   return (
-    <header className="h-[74px] border-b border-white/5 bg-[#0b0c0e] text-white">
+    <header className="fixed top-0 left-0 z-50 h-[74px] w-full border-b border-white/5 bg-[#0b0c0e] text-white">
       <div className="mx-auto flex h-full max-w-[1400px] items-center justify-between px-5 sm:px-8 lg:px-10">
         <div className="flex items-center gap-3">
           <Image
@@ -59,7 +69,7 @@ const Nav = () => {
             <span className="text-[#a1a5ad]">Plan</span>
 
             <span className="flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#b7ff00] px-1 text-[10px] font-bold text-black">
-              0
+              {addplan.length}
             </span>
           </Link>
 
@@ -71,7 +81,7 @@ const Nav = () => {
             <span className="text-[#a1a5ad]">Saved</span>
 
             <span className="flex h-[18px] min-w-[18px] items-center justify-center rounded-full border border-[#292c32] px-1 text-[10px] text-[#858991]">
-              0
+              {save.length}
             </span>
           </Link>
 
@@ -131,7 +141,7 @@ const Nav = () => {
                 <Link href="/my-plan" className="text-[#a1a5ad]">
                   Plan
                   <span className="ml-auto rounded-full bg-[#b7ff00] px-2 text-[10px] font-bold text-black">
-                    0
+                    {addplan.length}
                   </span>
                 </Link>
               </li>
@@ -140,7 +150,7 @@ const Nav = () => {
                 <Link href="/my-plan" className="text-[#a1a5ad]">
                   Saved
                   <span className="ml-auto rounded-full border border-white/10 px-2 text-[10px]">
-                    0
+                    {save.length}
                   </span>
                 </Link>
               </li>
