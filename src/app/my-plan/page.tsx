@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useContext, useMemo, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 import { Fitcontext } from "@/context/context";
 import { Workout } from "@/type/Datatype";
+import Plancard from "@/components/myplancard/plancard";
 
 type TabType = "today" | "saved";
 type SortType = "duration" | "caloriesBurned" | "rating";
@@ -20,7 +20,7 @@ const Page = () => {
     throw new Error("Page must be used inside ContextProvider");
   }
 
-  const { addplan, save } = context;
+  const { addplan, setaddplan, save, setsave } = context;
 
   const currentWorkouts = activeTab === "today" ? addplan : save;
 
@@ -40,6 +40,14 @@ const Page = () => {
     0,
   );
 
+  const handleRemove = (id: number) => {
+    if (activeTab === "today") {
+      setaddplan((previous) => previous.filter((workout) => workout.id !== id));
+    } else {
+      setsave((previous) => previous.filter((workout) => workout.id !== id));
+    }
+  };
+
   return (
     <main className="min-h-screen bg-[#0b0c0e] px-4 py-10 text-white sm:px-6 lg:px-10">
       <div className="mx-auto max-w-[1200px]">
@@ -56,7 +64,6 @@ const Page = () => {
 
         {/* Stats */}
         <div className="mt-6 grid grid-cols-1 overflow-hidden rounded-xl border border-[#292c32] bg-[#15171c] sm:grid-cols-3">
-          {/* Exercises */}
           <div className="border-b border-[#292c32] p-5 sm:border-b-0 sm:border-r">
             <p className="text-xs text-[#858a94]">Exercises</p>
 
@@ -65,7 +72,6 @@ const Page = () => {
             </p>
           </div>
 
-          {/* Minutes */}
           <div className="border-b border-[#292c32] p-5 sm:border-b-0 sm:border-r">
             <p className="text-xs text-[#858a94]">Minutes</p>
 
@@ -74,7 +80,6 @@ const Page = () => {
             </p>
           </div>
 
-          {/* Calories */}
           <div className="p-5">
             <p className="text-xs text-[#858a94]">Calories</p>
 
@@ -129,7 +134,7 @@ const Page = () => {
           </div>
         </div>
 
-        {/* Workout List / Empty State */}
+        {/* Workout Cards */}
         {sortedWorkouts.length === 0 ? (
           <div className="mt-4 flex min-h-[240px] flex-col items-center justify-center rounded-xl border border-dashed border-[#292c32] px-5 text-center">
             <h2 className="text-lg font-extrabold uppercase">
@@ -148,78 +153,18 @@ const Page = () => {
             </Link>
           </div>
         ) : (
-          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-4 flex flex-col gap-3">
             {sortedWorkouts.map((workout) => (
-              <WorkoutCard key={workout.id} workout={workout} />
+              <Plancard
+                key={workout.id}
+                workout={workout}
+                onRemove={handleRemove}
+              />
             ))}
           </div>
         )}
       </div>
     </main>
-  );
-};
-
-type WorkoutCardProps = {
-  workout: Workout;
-};
-
-const WorkoutCard = ({ workout }: WorkoutCardProps) => {
-  return (
-    <Link
-      href={`/workouts/${workout.id}`}
-      className="group overflow-hidden rounded-xl border border-[#292c32] bg-[#15171c] transition hover:border-[#b7ff00]/40"
-    >
-      {/* Image */}
-      <div className="relative h-44 w-full overflow-hidden bg-[#101216]">
-        <Image
-          src={workout.image}
-          alt={workout.name}
-          fill
-          className="object-cover transition duration-300 group-hover:scale-105"
-        />
-      </div>
-
-      {/* Content */}
-      <div className="p-4">
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <h2 className="text-sm font-bold text-white">{workout.name}</h2>
-
-            <p className="mt-1 text-xs text-[#858a94]">
-              {workout.muscleGroups.join(" • ")}
-            </p>
-          </div>
-
-          <span className="shrink-0 rounded-full border border-[#292c32] px-2 py-1 text-[10px] text-[#858a94]">
-            {workout.difficulty}
-          </span>
-        </div>
-
-        {/* Workout information */}
-        <div className="mt-4 grid grid-cols-3 gap-2 border-t border-[#292c32] pt-4">
-          <div>
-            <p className="text-[10px] text-[#858a94]">Duration</p>
-            <p className="mt-1 text-xs font-bold text-white">
-              {workout.duration} min
-            </p>
-          </div>
-
-          <div>
-            <p className="text-[10px] text-[#858a94]">Calories</p>
-            <p className="mt-1 text-xs font-bold text-white">
-              {workout.caloriesBurned}
-            </p>
-          </div>
-
-          <div>
-            <p className="text-[10px] text-[#858a94]">Rating</p>
-            <p className="mt-1 text-xs font-bold text-[#b7ff00]">
-              {workout.rating}
-            </p>
-          </div>
-        </div>
-      </div>
-    </Link>
   );
 };
 
