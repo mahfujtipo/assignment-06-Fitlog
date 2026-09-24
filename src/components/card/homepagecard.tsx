@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FiClock, FiStar } from "react-icons/fi";
+import { BsFire } from "react-icons/bs";
+
 import { Workout } from "@/type/Datatype";
 
 type HomepageCardProps = {
@@ -24,6 +27,7 @@ const HomepageCard = ({ workout }: HomepageCardProps) => {
         </div>
 
         <div className="p-4">
+          {/* Muscle Groups */}
           <div className="mb-3 flex flex-wrap gap-1.5">
             {workout.muscleGroups.map((muscle) => (
               <span
@@ -35,20 +39,35 @@ const HomepageCard = ({ workout }: HomepageCardProps) => {
             ))}
           </div>
 
+          {/* Workout Name */}
           <h3 className="text-[13px] font-extrabold uppercase tracking-wide text-white">
             {workout.name}
           </h3>
 
+          {/* Equipment */}
           <p className="mt-1 text-[10px] text-[#747983]">{workout.equipment}</p>
 
           <div className="my-4 h-px bg-[#24272d]" />
 
+          {/* Workout Stats */}
           <div className="flex items-center justify-between text-[10px] text-[#858a94]">
-            <span>◷ {workout.duration} min</span>
+            {/* Duration */}
+            <span className="flex items-center gap-1">
+              <FiClock className="h-3.5 w-3.5 text-[#b7ff00]" />
+              <span>{workout.duration} min</span>
+            </span>
 
-            <span>● {workout.caloriesBurned} kcal</span>
+            {/* Calories */}
+            <span className="flex items-center gap-1">
+              <BsFire className="h-3.5 w-3.5 text-[#b7ff00]" />
+              <span>{workout.caloriesBurned} kcal</span>
+            </span>
 
-            <span>☆ {workout.rating}</span>
+            {/* Rating */}
+            <span className="flex items-center gap-1">
+              <FiStar className="h-3.5 w-3.5 text-[#b7ff00]" />
+              <span>{workout.rating}</span>
+            </span>
           </div>
         </div>
       </article>
