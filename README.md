@@ -3,11 +3,12 @@
 FitLog is a modern workout library and planning web application that helps users explore exercises, view workout details, create a daily workout plan, and save workouts for later.
 
 ## 🚀 Live Website
-deployed website URL :
+
+Deployed Website:
 
 ## 📌 Project Description
 
-FitLog is a dark-themed workout management application built with **Next.js** and **TypeScript**.
+FitLog is a dark-themed workout management application built with Next.js and TypeScript.
 
 Users can browse different workouts and view important workout information such as muscle groups, equipment, difficulty, duration, calories, sets, reps, and rating.
 
@@ -97,11 +98,11 @@ FitLog uses the provided workout API.
 
 ### All Workouts
 
-https://api.abcz.workers.dev/api/fitlog
+`https://api.abcz.workers.dev/api/fitlog`
 
 ### Single Workout
 
-https://api.abcz.workers.dev/api/fitlog/:id
+`https://api.abcz.workers.dev/api/fitlog/:id`
 
 ## 📂 Main Project Structure
 
@@ -110,7 +111,15 @@ fitlog/
 ├── app/
 │   ├── page.tsx
 │   ├── layout.tsx
-│   └── ...
+│   ├── loading.tsx
+│   ├── not-found.tsx
+│   ├── my-plan/
+│   │   ├── page.tsx
+│   │   └── loading.tsx
+│   └── workouts/
+│       └── [id]/
+│           ├── page.tsx
+│           └── loading.tsx
 │
 ├── src/
 │   ├── components/
@@ -136,43 +145,41 @@ fitlog/
 
 ### 1. Clone the repository
 
-
 git clone GITHUB_REPOSITORY_URL
-
 
 ### 2. Go to the project directory
 
 cd fitlog
 
+
 ### 3. Install dependencies
 
 npm install
 
-
 ### 4. Run the development server
-
 
 npm run dev
 
+
 Open your browser and visit:
 
-http://localhost:3000
-
+`http://localhost:3000`
 
 ## 🏗️ Build for Production
 
 Create a production build:
 
+
 npm run build
+
 
 Start the production server:
 
 
 npm start
 
-
 ## 👨‍💻 Author
 
 ### Mahafujul Alam Tipo
 
-Built with  using Next.js, TypeScript, and Tailwind CSS.
+Built using Next.js, TypeScript, and Tailwind CSS.
