@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import { Workout } from "@/type/Datatype";
 import AddButton from "@/components/buttons/addbutton";
 import SaveButton from "@/components/buttons/savebutton";
@@ -27,15 +28,7 @@ export default async function Page({
   const workout = workouts.find((item) => item.id === Number(id));
 
   if (!workout) {
-    return (
-      <main className="flex min-h-screen items-center justify-center bg-[#0b0c0e] px-5 text-white">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold">Workout not found</h1>
-
-          <p className="mt-2 text-[#858a94]">Workout ID: {id}</p>
-        </div>
-      </main>
-    );
+    notFound();
   }
 
   return (

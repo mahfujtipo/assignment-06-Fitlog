@@ -1,10 +1,24 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
 import { FiArrowDown } from "react-icons/fi";
 
 import banner from "../../assets/banner.png";
 
 const Hsection = () => {
+  const handleBrowseWorkouts = () => {
+    const library = document.getElementById("library");
+
+    if (library) {
+      const top = library.getBoundingClientRect().top + window.scrollY - 90;
+
+      window.scrollTo({
+        top,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <section className="bg-[#0b0c0e] px-4 py-6 text-white sm:px-6 sm:py-8 lg:px-10 lg:py-10">
       <div className="mx-auto max-w-[1400px]">
@@ -33,13 +47,14 @@ const Hsection = () => {
               </p>
 
               {/* CTA */}
-              <Link
-                href="#library"
-                className="mt-7 inline-flex items-center gap-2 rounded-md bg-[#b7ff00] px-6 py-3 text-[11px] font-extrabold uppercase tracking-wide text-black transition-all duration-200 hover:bg-[#c8ff33] hover:shadow-[0_0_25px_rgba(183,255,0,0.2)] active:scale-95"
+              <button
+                type="button"
+                onClick={handleBrowseWorkouts}
+                className="mt-7 inline-flex cursor-pointer items-center gap-2 rounded-md bg-[#b7ff00] px-6 py-3 text-[11px] font-extrabold uppercase tracking-wide text-black transition-all duration-200 hover:bg-[#c8ff33] hover:shadow-[0_0_25px_rgba(183,255,0,0.2)] active:scale-95"
               >
                 <span>Browse Workouts</span>
                 <FiArrowDown className="h-4 w-4" />
-              </Link>
+              </button>
             </div>
 
             {/* Mobile / Tablet Banner */}

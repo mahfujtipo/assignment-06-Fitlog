@@ -23,7 +23,7 @@ const Page = async () => {
 
       <section
         id="library"
-        className="bg-[#0b0c0e] px-4 pb-10 pt-2 sm:px-6 lg:px-10 lg:pb-16"
+        className="scroll-mt-[90px] bg-[#0b0c0e] px-4 pb-10 pt-2 sm:px-6 lg:px-10 lg:pb-16"
       >
         <div className="mx-auto max-w-[1400px]">
           <div className="mb-5">

@@ -18,41 +18,29 @@ type ContextProviderProps = {
 export const Fitcontext = createContext<FitcontextType | undefined>(undefined);
 
 const ContextProvider = ({ children }: ContextProviderProps) => {
-  const [addplan, setaddplan] = useState<Workout[]>(() => {
-    if (typeof window === "undefined") {
-      return [];
-    }
+  const [addplan, setaddplan] = useState<Workout[]>([]);
+  const [save, setsave] = useState<Workout[]>([]);
 
+  useEffect(() => {
     const storedPlan = localStorage.getItem("fitlog-plan");
-
-    if (!storedPlan) {
-      return [];
-    }
-
-    try {
-      return JSON.parse(storedPlan);
-    } catch {
-      return [];
-    }
-  });
-
-  const [save, setsave] = useState<Workout[]>(() => {
-    if (typeof window === "undefined") {
-      return [];
-    }
-
     const storedSave = localStorage.getItem("fitlog-save");
 
-    if (!storedSave) {
-      return [];
+    if (storedPlan) {
+      try {
+        setaddplan(JSON.parse(storedPlan));
+      } catch {
+        localStorage.removeItem("fitlog-plan");
+      }
     }
 
-    try {
-      return JSON.parse(storedSave);
-    } catch {
-      return [];
+    if (storedSave) {
+      try {
+        setsave(JSON.parse(storedSave));
+      } catch {
+        localStorage.removeItem("fitlog-save");
+      }
     }
-  });
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("fitlog-plan", JSON.stringify(addplan));

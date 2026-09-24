@@ -4,7 +4,7 @@ FitLog is a modern workout library and planning web application that helps users
 
 ## 🚀 Live Website
 
-Deployed Website:
+Deployed Website: https://assignment-06-fitlog-t72o.vercel.app/
 
 ## 📌 Project Description
 
@@ -18,15 +18,15 @@ The workout data is fetched from the provided FitLog API.
 
 ## 🛠️ Technologies Used
 
-* Next.js
-* React
-* TypeScript
-* Tailwind CSS
-* React Icons
-* React Toastify
-* React Context API
-* Next.js Image
-* REST API
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- React Icons
+- React Toastify
+- React Context API
+- Next.js Image
+- REST API
 
 ## ✨ Features
 
@@ -34,25 +34,25 @@ The workout data is fetched from the provided FitLog API.
 
 Browse a collection of workouts with information such as:
 
-* Workout name
-* Muscle groups
-* Equipment
-* Duration
-* Calories burned
-* Rating
+- Workout name
+- Muscle groups
+- Equipment
+- Duration
+- Calories burned
+- Rating
 
 ### 2. 📖 Workout Details
 
 Users can open an individual workout and view detailed information including:
 
-* Workout description
-* Difficulty
-* Equipment
-* Sets and reps
-* Instructions
-* Calories burned
-* Duration
-* Rating
+- Workout description
+- Difficulty
+- Equipment
+- Sets and reps
+- Instructions
+- Calories burned
+- Duration
+- Rating
 
 ### 3. 📋 Today's Workout Plan
 
@@ -74,19 +74,19 @@ Users can remove workouts from today's plan when they no longer want to perform 
 
 The application provides feedback using toast notifications when users:
 
-* Add a workout
-* Save a workout
-* Try to add a duplicate workout
-* Try to save a duplicate workout
-* Remove a workout
+- Add a workout
+- Save a workout
+- Try to add a duplicate workout
+- Try to save a duplicate workout
+- Remove a workout
 
 ### 8. 📱 Responsive Design
 
 The application is designed to work across:
 
-* Mobile devices
-* Tablets
-* Desktop screens
+- Mobile devices
+- Tablets
+- Desktop screens
 
 ### 9. 🌙 Dark Gym-Themed UI
 
@@ -174,12 +174,11 @@ fitlog/
 
 ### 1. Clone the repository
 
-git clone GITHUB_REPOSITORY_URL
+git clone GITHUB_REPOSITORY_URL :https://github.com/mahfujtipo/assignment-06-Fitlog
 
 ### 2. Go to the project directory
 
 cd fitlog
-
 
 ### 3. Install dependencies
 
@@ -189,7 +188,6 @@ npm install
 
 npm run dev
 
-
 Open your browser and visit:
 
 `http://localhost:3000`
@@ -198,12 +196,9 @@ Open your browser and visit:
 
 Create a production build:
 
-
 npm run build
 
-
 Start the production server:
-
 
 npm start
 
