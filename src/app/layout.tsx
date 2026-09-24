@@ -37,7 +37,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
           <Footersection />
 
-          <ToastContainer position="top-right" autoClose={2000} />
+          <ToastContainer
+            position="top-right"
+            autoClose={2000}
+            style={{ top: "100px" }}
+          />
         </ContextProvider>
       </body>
     </html>
