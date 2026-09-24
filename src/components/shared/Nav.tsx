@@ -1,9 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import logo from "../../assets/logo.png";
 
 const Nav = () => {
+  const pathname = usePathname();
+
   return (
     <header className="h-[74px] border-b border-white/5 bg-[#0b0c0e] text-white">
       <div className="mx-auto flex h-full max-w-[1400px] items-center justify-between px-5 sm:px-8 lg:px-10">
@@ -20,25 +25,35 @@ const Nav = () => {
           </span>
         </div>
 
+        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-2 md:flex">
           <Link
-            href="#workouts"
-            className="rounded-full bg-[#1b2708] px-5 py-2 text-xs font-semibold text-[#b7ff00] transition hover:bg-[#24350a]"
+            href="/"
+            className={`rounded-full px-5 py-2 text-xs font-semibold transition ${
+              pathname === "/"
+                ? "bg-[#1b2708] text-[#b7ff00]"
+                : "text-[#8c9099] hover:text-white"
+            }`}
           >
             Workouts
           </Link>
 
           <Link
-            href="#plan"
-            className="rounded-full px-5 py-2 text-xs font-medium text-[#8c9099] transition hover:text-white"
+            href="/my-plan"
+            className={`rounded-full px-5 py-2 text-xs font-semibold transition ${
+              pathname === "/my-plan"
+                ? "bg-[#1b2708] text-[#b7ff00]"
+                : "text-[#8c9099] hover:text-white"
+            }`}
           >
-            My Plan
+            My plan
           </Link>
         </nav>
 
         <div className="flex items-center gap-5">
+          {/* Plan */}
           <Link
-            href="#plan"
+            href="/my-plan"
             className="hidden items-center gap-2 text-xs sm:flex"
           >
             <span className="text-[#a1a5ad]">Plan</span>
@@ -48,9 +63,9 @@ const Nav = () => {
             </span>
           </Link>
 
-          
+          {/* Saved */}
           <Link
-            href="#saved"
+            href="/my-plan"
             className="hidden items-center gap-2 text-xs sm:flex"
           >
             <span className="text-[#a1a5ad]">Saved</span>
@@ -60,6 +75,7 @@ const Nav = () => {
             </span>
           </Link>
 
+          {/* Mobile Menu */}
           <div className="dropdown dropdown-end md:hidden">
             <button
               tabIndex={0}
@@ -88,19 +104,31 @@ const Nav = () => {
               className="menu dropdown-content z-50 mt-3 w-48 rounded-xl border border-white/10 bg-[#15171b] p-2 shadow-xl"
             >
               <li>
-                <Link href="#workouts" className="text-[#b7ff00]">
+                <Link
+                  href="/"
+                  className={
+                    pathname === "/" ? "text-[#b7ff00]" : "text-[#a1a5ad]"
+                  }
+                >
                   Workouts
                 </Link>
               </li>
 
               <li>
-                <Link href="#plan" className="text-[#a1a5ad]">
+                <Link
+                  href="/my-plan"
+                  className={
+                    pathname === "/my-plan"
+                      ? "text-[#b7ff00]"
+                      : "text-[#a1a5ad]"
+                  }
+                >
                   My Plan
                 </Link>
               </li>
 
               <li>
-                <Link href="#plan" className="text-[#a1a5ad]">
+                <Link href="/my-plan" className="text-[#a1a5ad]">
                   Plan
                   <span className="ml-auto rounded-full bg-[#b7ff00] px-2 text-[10px] font-bold text-black">
                     0
@@ -109,7 +137,7 @@ const Nav = () => {
               </li>
 
               <li>
-                <Link href="#saved" className="text-[#a1a5ad]">
+                <Link href="/my-plan" className="text-[#a1a5ad]">
                   Saved
                   <span className="ml-auto rounded-full border border-white/10 px-2 text-[10px]">
                     0
