@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { FiArchive, FiBookmark } from "react-icons/fi";
 import { Workout } from "@/type/Datatype";
+import AddButton from "@/components/buttons/addbutton";
+import SaveButton from "@/components/buttons/savebutton";
 
 export default async function Page({
   params,
@@ -181,24 +182,9 @@ export default async function Page({
 
             {/* Action Buttons */}
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              {/* Add to Plan */}
-              <button
-                type="button"
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#b7ff00] px-5 py-3 text-sm font-bold text-black transition hover:bg-[#c8ff33] sm:flex-1"
-              >
-                <FiArchive className="h-4 w-4" />
+              <AddButton workout={workout} />
 
-                <span>Add to todays plan</span>
-              </button>
-
-              <button
-                type="button"
-                className="flex w-full items-center justify-center gap-2 rounded-lg border border-[#b7ff00] bg-transparent px-5 py-3 text-sm font-bold text-[#b7ff00] transition hover:bg-[#1b2708] sm:flex-1"
-              >
-                <FiBookmark className="h-4 w-4" />
-
-                <span>Save for later</span>
-              </button>
+              <SaveButton workout={workout} />
             </div>
           </div>
         </section>
