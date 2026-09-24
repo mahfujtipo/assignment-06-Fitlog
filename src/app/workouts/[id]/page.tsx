@@ -72,80 +72,80 @@ export default async function Page({
             </div>
 
             {/* Workout Stats */}
-            <div className="mt-6 grid grid-cols-2 gap-x-5 gap-y-5 border-y border-[#292c32] py-6 sm:grid-cols-3">
+            <div className="mt-6 space-y-2">
               {/* Equipment */}
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-[#626770]">
+              <div className="flex items-center justify-between rounded-md bg-[#292c32] px-4 py-3">
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#858a94]">
                   Equipment
                 </p>
 
-                <p className="mt-1.5 text-sm font-semibold text-white">
+                <p className="text-sm font-semibold text-white">
                   {workout.equipment}
                 </p>
               </div>
 
               {/* Difficulty */}
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-[#626770]">
+              <div className="flex items-center justify-between rounded-md bg-[#292c32] px-4 py-3">
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#858a94]">
                   Difficulty
                 </p>
 
-                <p className="mt-1.5 text-sm font-semibold text-white">
+                <p className="text-sm font-semibold text-white">
                   {workout.difficulty}
                 </p>
               </div>
 
               {/* Sets */}
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-[#626770]">
+              <div className="flex items-center justify-between rounded-md bg-[#292c32] px-4 py-3">
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#858a94]">
                   Sets
                 </p>
 
-                <p className="mt-1.5 text-sm font-semibold text-white">
+                <p className="text-sm font-semibold text-white">
                   {workout.sets}
                 </p>
               </div>
 
               {/* Reps */}
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-[#626770]">
+              <div className="flex items-center justify-between rounded-md bg-[#292c32] px-4 py-3">
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#858a94]">
                   Reps
                 </p>
 
-                <p className="mt-1.5 text-sm font-semibold text-white">
+                <p className="text-sm font-semibold text-white">
                   {workout.reps}
                 </p>
               </div>
 
               {/* Duration */}
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-[#626770]">
+              <div className="flex items-center justify-between rounded-md bg-[#292c32] px-4 py-3">
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#858a94]">
                   Duration
                 </p>
 
-                <p className="mt-1.5 text-sm font-semibold text-white">
+                <p className="text-sm font-semibold text-white">
                   {workout.duration} min
                 </p>
               </div>
 
               {/* Calories */}
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-[#626770]">
+              <div className="flex items-center justify-between rounded-md bg-[#292c32] px-4 py-3">
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#858a94]">
                   Calories
                 </p>
 
-                <p className="mt-1.5 text-sm font-semibold text-white">
+                <p className="text-sm font-semibold text-white">
                   {workout.caloriesBurned} kcal
                 </p>
               </div>
 
               {/* Rating */}
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-[#626770]">
+              <div className="flex items-center justify-between rounded-md bg-[#292c32] px-4 py-3">
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#858a94]">
                   Rating
                 </p>
 
-                <p className="mt-1.5 text-sm font-semibold text-[#b7ff00]">
+                <p className="text-sm font-semibold text-[#b7ff00]">
                   ★ {workout.rating}
                 </p>
               </div>
