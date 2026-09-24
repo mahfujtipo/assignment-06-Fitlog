@@ -1,6 +1,7 @@
 import HomepageCard from "@/components/card/homepagecard";
 import Hsection from "@/components/Herosec/Hsection";
 
+
 import { Workout } from "@/type/Datatype";
 
 const getWorkouts = async (): Promise<Workout[]> => {
