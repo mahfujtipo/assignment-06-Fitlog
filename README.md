@@ -108,26 +108,45 @@ FitLog uses the provided workout API.
 
 ```text
 fitlog/
+│
 ├── app/
-│   ├── page.tsx
+│   ├── globals.css
 │   ├── layout.tsx
+│   ├── page.tsx
 │   ├── loading.tsx
 │   ├── not-found.tsx
+│   │
 │   ├── my-plan/
 │   │   ├── page.tsx
 │   │   └── loading.tsx
+│   │
 │   └── workouts/
 │       └── [id]/
 │           ├── page.tsx
 │           └── loading.tsx
 │
 ├── src/
+│   │
 │   ├── components/
+│   │   │
+│   │   ├── buttons/
+│   │   │   ├── addbutton.tsx
+│   │   │   └── savebutton.tsx
+│   │   │
 │   │   ├── card/
+│   │   │   └── homepagecard.tsx
+│   │   │
 │   │   ├── footer/
+│   │   │   └── Footersection.tsx
+│   │   │
 │   │   ├── Herosec/
+│   │   │   └── Hsection.tsx
+│   │   │
 │   │   ├── myplancard/
+│   │   │   └── plancard.tsx
+│   │   │
 │   │   └── shared/
+│   │       └── Nav.tsx
 │   │
 │   ├── context/
 │   │   └── context.tsx
@@ -135,10 +154,20 @@ fitlog/
 │   └── type/
 │       └── Datatype.ts
 │
+├── assets/
+│   ├── banner.png
+│   └── logo.png
+│
 ├── public/
-├── package.json
+│
+├── .gitignore
 ├── next.config.ts
-└── README.md
+├── package.json
+├── package-lock.json
+├── postcss.config.mjs
+├── tsconfig.json
+├── README.md
+└── ...
 ```
 
 ## ⚙️ Installation & Setup

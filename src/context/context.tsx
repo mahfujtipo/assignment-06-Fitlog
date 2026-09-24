@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 
 import { Workout } from "@/type/Datatype";
 
@@ -11,15 +11,56 @@ type FitcontextType = {
   setsave: React.Dispatch<React.SetStateAction<Workout[]>>;
 };
 
-type contextProviderProps = {
+type ContextProviderProps = {
   children: React.ReactNode;
 };
 
 export const Fitcontext = createContext<FitcontextType | undefined>(undefined);
 
-const contextProvider = ({ children }: contextProviderProps) => {
-  const [addplan, setaddplan] = useState<Workout[]>([]);
-  const [save, setsave] = useState<Workout[]>([]);
+const ContextProvider = ({ children }: ContextProviderProps) => {
+  const [addplan, setaddplan] = useState<Workout[]>(() => {
+    if (typeof window === "undefined") {
+      return [];
+    }
+
+    const storedPlan = localStorage.getItem("fitlog-plan");
+
+    if (!storedPlan) {
+      return [];
+    }
+
+    try {
+      return JSON.parse(storedPlan);
+    } catch {
+      return [];
+    }
+  });
+
+  const [save, setsave] = useState<Workout[]>(() => {
+    if (typeof window === "undefined") {
+      return [];
+    }
+
+    const storedSave = localStorage.getItem("fitlog-save");
+
+    if (!storedSave) {
+      return [];
+    }
+
+    try {
+      return JSON.parse(storedSave);
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem("fitlog-plan", JSON.stringify(addplan));
+  }, [addplan]);
+
+  useEffect(() => {
+    localStorage.setItem("fitlog-save", JSON.stringify(save));
+  }, [save]);
 
   const shareddata = {
     addplan,
@@ -33,4 +74,4 @@ const contextProvider = ({ children }: contextProviderProps) => {
   );
 };
 
-export default contextProvider;
+export default ContextProvider;
