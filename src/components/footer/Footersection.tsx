@@ -22,14 +22,10 @@ const Footersection = () => {
         </div>
 
         {/* Right Side */}
-        <div className="flex flex-col items-center gap-1 text-center md:items-end md:text-right">
-          <div className="flex items-center gap-1.5 text-[11px] text-[#858a94]">
-            <MdCopyright className="h-3 w-3" />
+        <div className="flex items-center gap-1.5 text-center text-[11px] text-[#858a94]">
+          <MdCopyright className="h-3 w-3 shrink-0" />
 
-            <span>2026 FitLog — Workout Library</span>
-          </div>
-
-          <p className="text-[10px] text-[#626770]">Train hard, log honest.</p>
+          <span>2026 FitLog — Workout Library. Train hard, log honest.</span>
         </div>
       </div>
     </footer>
