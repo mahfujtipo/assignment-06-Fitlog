@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FiCheck, FiClock, FiStar, FiTrash2 } from "react-icons/fi";
+import { FiCheck, FiClock, FiStar } from "react-icons/fi";
 
 import { Workout } from "@/type/Datatype";
 
@@ -91,9 +91,9 @@ const Plancard = ({ workout, onRemove }: PlancardProps) => {
           type="button"
           onClick={() => onRemove(workout.id)}
           aria-label={`Remove ${workout.name}`}
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#292c32] text-[#858a94] transition hover:border-red-500/50 hover:text-red-400"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#292c32] text-lg font-medium text-[#858a94] transition hover:border-red-500/50 hover:text-red-400"
         >
-          <FiTrash2 className="h-4 w-4" />
+          ×
         </button>
       </div>
     </div>
